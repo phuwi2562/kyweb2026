@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUMYAI Health Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#0f766e; --primary2:#14b8a6; --dark:#0f172a; --muted:#64748b;
+      --bg:#f0fdfa; --card:#ffffff; --danger:#ef4444; --warn:#f59e0b; --ok:#22c55e;
+      --line:#e2e8f0; --shadow:0 14px 35px rgba(15,118,110,.16);
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:'Sarabun',sans-serif;background:linear-gradient(180deg,#ecfeff,#f8fafc);color:var(--dark)}
+    .hero{padding:28px 18px 22px;background:radial-gradient(circle at top left,#5eead4,transparent 35%),linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;border-radius:0 0 32px 32px;box-shadow:var(--shadow)}
+    .wrap{max-width:1080px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:1.55rem;font-weight:800;line-height:1.2}.pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:8px 12px;border-radius:999px;font-weight:700;font-size:.9rem;white-space:nowrap}.subtitle{margin:16px 0 0;font-size:1.04rem;opacity:.96}.search{margin-top:18px;display:flex;gap:10px}.search input{width:100%;padding:14px 16px;border-radius:18px;border:0;font-size:1rem;outline:none}.search button{border:0;border-radius:18px;background:#052e2b;color:#fff;padding:0 18px;font-weight:800}
+    .section{padding:18px}.notice{max-width:1080px;margin:-12px auto 16px;background:#fff;border:1px solid #ccfbf1;border-radius:22px;padding:15px;box-shadow:0 8px 24px rgba(2,132,199,.08);display:flex;gap:12px;align-items:flex-start}.notice b{color:#0f766e}.grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:0 10px 24px rgba(15,23,42,.06);text-decoration:none;color:var(--dark);min-height:132px;display:flex;flex-direction:column;justify-content:space-between;transition:.18s}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.icon{font-size:2rem}.title{font-weight:800;font-size:1.04rem;margin-top:8px}.desc{color:var(--muted);font-size:.9rem;line-height:1.35}.tag{margin-top:10px;color:#0f766e;font-weight:800;font-size:.85rem}.wide{max-width:1080px;margin:16px auto;display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:18px;box-shadow:0 10px 24px rgba(15,23,42,.06)}.panel h2{font-size:1.2rem;margin:0 0 12px}.calendar-item{padding:12px 0;border-bottom:1px dashed #cbd5e1}.calendar-item:last-child{border-bottom:0}.time{font-weight:800;color:#0f766e}.ai-box{background:linear-gradient(135deg,#f0f9ff,#ecfeff);border:1px solid #bae6fd;border-radius:20px;padding:14px}.ai-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai-row input{padding:12px;border-radius:14px;border:1px solid #cbd5e1;font-family:inherit}.btn{width:100%;margin-top:10px;background:#0f766e;color:#fff;border:0;border-radius:16px;padding:13px;font-weight:800;font-family:inherit}.result{margin-top:10px;padding:12px;border-radius:16px;background:#fff;border:1px solid #dbeafe;line-height:1.55}.footer{text-align:center;color:#64748b;padding:28px 16px 36px;font-size:.9rem}.hide{display:none!important}@media(min-width:780px){.grid{grid-template-columns:repeat(4,1fr)}.hero{padding:38px 22px 30px}.brand{font-size:2.2rem}.subtitle{font-size:1.18rem}.card{min-height:150px}}@media(max-width:720px){.wide{grid-template-columns:1fr}.top{align-items:flex-start}.pill{font-size:.78rem}.hero{border-radius:0 0 26px 26px}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">❤️ KUMYAI Health Portal<br><span style="font-size:.72em;font-weight:600">One Link • One Community • One Health</span></div>
+        <div class="pill">ตำบลคำใหญ่สุขภาพดี</div>
+      </div>
+      <p class="subtitle">ศูนย์รวมลิงก์บริการสุขภาพดิจิทัลสำหรับประชาชน อสม. และทีมสุขภาพตำบลคำใหญ่</p>
+      <div class="search">
+        <input id="search" placeholder="ค้นหา เช่น ความดัน, ปฏิทิน, ความรอบรู้, BMI" onkeyup="filterCards()">
+        <button onclick="filterCards()">ค้นหา</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="notice">
+      <div style="font-size:1.6rem">📢</div>
+      <div><b>ประกาศวันนี้</b><br>ตรวจสุขภาพที่สถานีสุขภาพบ้านคำใหญ่ หมู่ที่ 11 ทุกวันพุธและศุกร์ เวลา 06.30–08.30 น.</div>
+    </div>
+
+    <div class="grid" id="menuGrid">
+      <a class="card" data-key="smart health book สมุดสุขภาพ record id" href="<?= links.healthBook ?>" target="_blank"><div><div class="icon">❤️</div><div class="title">Smart Health Book</div><div class="desc">ดูผลตรวจ กราฟย้อนหลัง และ Record ID</div></div><div class="tag">เข้าใช้งาน →</div></a>
+      <a class="card" data-key="health literacy ความรอบรู้สุขภาพ ผู้สูงอายุ ncd" href="<?= links.healthLiteracy ?>" target="_blank"><div><div class="icon">🧠</div><div class="title">ความรอบรู้สุขภาพ</div><div class="desc">เรียนรู้ รู้เท่าทัน เข้าใจ ใช้ข้อมูลสุขภาพ</div></div><div class="tag">เรียนรู้ →</div></a>
+      <a class="card" data-key="calendar ปฏิทินสุขภาพ กิจกรรม นัดหมาย" href="<?= links.calendar ?>" target="_blank"><div><div class="icon">📅</div><div class="title">ปฏิทินสุขภาพ</div><div class="desc">บริการ กิจกรรม นัดหมาย และประชาสัมพันธ์</div></div><div class="tag">ดูปฏิทิน →</div></a>
+      <a class="card" data-key="assessment ประเมินสุขภาพ hl satisfaction phq ncd" href="<?= links.assessment ?>" target="_blank"><div><div class="icon">📝</div><div class="title">แบบประเมินสุขภาพ</div><div class="desc">HL, NCD Risk, ความพึงพอใจ, PHQ</div></div><div class="tag">ประเมิน →</div></a>
+      <a class="card" data-key="dashboard ข้อมูล real time หมู่บ้าน" href="<?= links.dashboard ?>" target="_blank"><div><div class="icon">📊</div><div class="title">Dashboard</div><div class="desc">ข้อมูลภาพรวมสถานีสุขภาพและชุมชน</div></div><div class="tag">ดูข้อมูล →</div></a>
+      <a class="card" data-key="family wellness plan ครอบครัว" href="<?= links.family ?>" target="_blank"><div><div class="icon">👨‍👩‍👧</div><div class="title">Family Wellness</div><div class="desc">แผนครอบครัวสุขภาพดีและติดตามรายเดือน</div></div><div class="tag">เริ่มแผน →</div></a>
+      <a class="card" data-key="health station สถานีสุขภาพ สุขศาลา" href="<?= links.station ?>" target="_blank"><div><div class="icon">🏥</div><div class="title">Health Station</div><div class="desc">เวลาบริการ ทีม อสม. เครื่องมือ และแผนที่</div></div><div class="tag">ดูสถานี →</div></a>
+      <a class="card" data-key="321 ไร้พุง ออกกำลังกาย ncd" href="<?= links.challenge321 ?>" target="_blank"><div><div class="icon">🏃</div><div class="title">3-2-1 คนคำใหญ่ไร้พุง</div><div class="desc">ขยับกาย ลดรอบเอว ต้านโรค NCDs</div></div><div class="tag">ร่วมกิจกรรม →</div></a>
+      <a class="card" data-key="news ข่าว ประชาสัมพันธ์ รูปกิจกรรม" href="<?= links.news ?>" target="_blank"><div><div class="icon">📢</div><div class="title">ข่าวประชาสัมพันธ์</div><div class="desc">ข่าว กิจกรรม และประกาศสำคัญ</div></div><div class="tag">อ่านข่าว →</div></a>
+      <a class="card" data-key="download ดาวน์โหลด คู่มือ แบบฟอร์ม" href="<?= links.download ?>" target="_blank"><div><div class="icon">📚</div><div class="title">ดาวน์โหลด</div><div class="desc">คู่มือ โปสเตอร์ แบบฟอร์ม และสื่อสุขภาพ</div></div><div class="tag">ดาวน์โหลด →</div></a>
+      <a class="card" data-key="contact ติดต่อ รพ.สต line map" href="<?= links.contact ?>" target="_blank"><div><div class="icon">☎️</div><div class="title">ติดต่อทีมสุขภาพ</div><div class="desc">โทร LINE Facebook และ Google Map</div></div><div class="tag">ติดต่อ →</div></a>
+      <a class="card" data-key="ai health coach bmi bp sugar" href="#ai"><div><div class="icon">🤖</div><div class="title">AI Health Coach</div><div class="desc">ช่วยคำนวณ BMI และแนะนำเบื้องต้น</div></div><div class="tag">ลองใช้ →</div></a>
+    </div>
+
+    <div class="wide">
+      <section class="panel">
+        <h2>📅 ปฏิทินสุขภาพเร็ว ๆ นี้</h2>
+        <div id="calendarList">กำลังโหลด...</div>
+      </section>
+      <section class="panel" id="ai">
+        <h2>🤖 AI Health Coach เบื้องต้น</h2>
+        <div class="ai-box">
+          <div class="ai-row"><input id="weight" type="number" placeholder="น้ำหนัก kg"><input id="height" type="number" placeholder="ส่วนสูง cm"></div>
+          <button class="btn" onclick="calcBMI()">คำนวณ BMI</button>
+          <div id="bmiResult" class="result">กรอกน้ำหนักและส่วนสูง เพื่อดูคำแนะนำเบื้องต้น</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">พัฒนาเพื่อสนับสนุนสถานีสุขภาพบ้านคำใหญ่ หมู่ที่ 11 • KhamYai Smart Health Book • รพ.สต.บ้านคำใหญ่</footer>
+
+<script>
+  const fallbackEvents = [
+    {date:'ทุกวันพุธ', time:'06.30–08.30 น.', title:'ตรวจสุขภาพ ณ ศาลาริมหนอง บ้านคำใหญ่ หมู่ที่ 11'},
+    {date:'ทุกวันศุกร์', time:'06.30–08.30 น.', title:'ติดตามสุขภาพ ณ สุขศาลาบ้านคำใหญ่ หมู่ที่ 11'},
+    {date:'รายเดือน', time:'ตามประกาศ', title:'กิจกรรม 3-2-1 คนคำใหญ่ไร้พุง'}
+  ];
+  function renderEvents(events){
+    const list = document.getElementById('calendarList');
+    list.innerHTML = events.map(e=>`<div class="calendar-item"><div class="time">${e.date} • ${e.time}</div><div>${e.title}</div></div>`).join('');
+  }
+  function loadEvents(){
+    try{
+      google.script.run.withSuccessHandler(data=>renderEvents(data && data.length ? data : fallbackEvents)).withFailureHandler(()=>renderEvents(fallbackEvents)).getCalendarEvents();
+    }catch(e){ renderEvents(fallbackEvents); }
+  }
+  function filterCards(){
+    const q = document.getElementById('search').value.toLowerCase().trim();
+    document.querySelectorAll('.card').forEach(card=>{
+      card.classList.toggle('hide', q && !card.dataset.key.toLowerCase().includes(q) && !card.innerText.toLowerCase().includes(q));
+    });
+  }
+  function calcBMI(){
+    const w = parseFloat(document.getElementById('weight').value);
+    const hcm = parseFloat(document.getElementById('height').value);
+    const box = document.getElementById('bmiResult');
+    if(!w || !hcm){ box.innerHTML='กรุณากรอกน้ำหนักและส่วนสูงให้ครบครับ'; return; }
+    const h = hcm/100, bmi = w/(h*h);
+    let level='ปกติ', advice='รักษาพฤติกรรมสุขภาพดีต่อเนื่อง เดินสม่ำเสมอ กินผักให้พอ';
+    if(bmi < 18.5){ level='น้ำหนักน้อย'; advice='เพิ่มอาหารที่มีประโยชน์และติดตามน้ำหนัก'; }
+    else if(bmi >= 23 && bmi < 25){ level='น้ำหนักเกิน'; advice='เริ่มแผน 3-2-1 ลดหวานมันเค็ม และเดินเร็วอย่างน้อย 150 นาที/สัปดาห์'; }
+    else if(bmi >= 25){ level='อ้วน'; advice='ควรติดตามรอบเอว ความดัน น้ำตาล และเข้าร่วมกิจกรรมปรับพฤติกรรมต่อเนื่อง'; }
+    box.innerHTML = `<b>BMI = ${bmi.toFixed(1)}</b><br>ระดับ: <b>${level}</b><br>คำแนะนำ: ${advice}`;
+  }
+  document.addEventListener('DOMContentLoaded', loadEvents);
+</script>
+</body>
+</html>
